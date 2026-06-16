@@ -1,0 +1,864 @@
+@charset "UTF-8";
+
+/* ==========================================
+   🔤 フォント登録
+   ========================================== */
+@font-face {
+    font-family: 'kazukiReiwa-Regular';
+    src: url('fonts/kazukiReiwa-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+*, body, h1, h2, h3, h4, p, a, span, div {
+    font-family: 'kazukiReiwa-Regular', 'YuMincho', '游明朝', serif !important;
+}
+
+/* ==========================================
+   🎨 基本設定
+   ========================================== */
+html { scroll-behavior: smooth; }
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #ffeef2;
+    color: #4a3b32;
+    overflow-x: hidden;
+}
+
+.lp-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 40px 20px;
+    text-align: center;
+    position: relative;
+    z-index: 2;
+}
+
+/* ==========================================
+   表示切り替え（PC/スマホ）
+   ========================================== */
+.sp-only { display: none; }
+.pc-only { display: inline-block; }
+
+/* ==========================================
+   タイトル画像
+   ========================================== */
+.main-title img {
+    max-width: 90%;
+    width: 600px;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+}
+
+/* ==========================================
+   キャッチコピー
+   ========================================== */
+.lp-content p {
+    font-size: 25px;
+    line-height: 1.8;
+    margin: 24px 0;
+}
+
+.catch-copy {
+    margin-top: 0;
+    font-size: 22px;
+    font-weight: bold;
+    color: #d15170;
+    text-align: inherit;
+}
+
+/* ==========================================
+   ✅ タイピングカーソル（点滅ゼロ・hidari.webp表示）
+   ========================================== */
+.typing-cursor,
+.typing-cursor-2 {
+    display: inline-block;
+    vertical-align: middle;
+    margin-left: 8px;
+    width: 32px;
+    height: 32px;
+    background-image: url('images/fairies/fairie-1/hidari.webp');
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: contain;
+    /* ✅ 点滅・アニメーション完全無効化 */
+    animation: none !important;
+    -webkit-animation: none !important;
+    border: none !important;
+    /* フェードアウトはJSが transition を後から付与する */
+}
+
+/* ==========================================
+   1つ目のタイピングボックス
+   ========================================== */
+.typing-box {
+    background-color: #ffffff;
+    border: 2px solid #fbc9d8;
+    border-radius: 12px;
+    padding: 40px 20px;
+    margin: 60px auto;
+    max-width: 700px;
+    display: block;
+    text-align: center;
+    box-shadow: 0 6px 20px rgba(224,164,178,0.25);
+}
+
+.typing-main-row {
+    display: block;
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+#typing-text {
+    font-size: 24px;
+    font-weight: bold;
+    line-height: 2.0;
+    color: #4a3b32;
+    margin: 0;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.typing-sub-text {
+    font-size: 18px !important;
+    color: #6b5649;
+    line-height: 1.1;
+    margin: 0;
+    padding-top: 10px;
+    border-top: 1px dashed #fbc9d8;
+    display: inline-block;
+    max-width: 90%;
+}
+
+/* ==========================================
+   活動内容カード（①②③）
+   ========================================== */
+.content-services {
+    margin: 60px auto;
+    max-width: 700px;
+    padding: 0 10px;
+}
+
+.content-card {
+    background-color: #ffffff;
+    border-radius: 16px;
+    padding: 35px 30px;
+    margin-bottom: 35px;
+    box-shadow: 0 8px 24px rgba(224,164,178,0.15);
+    display: flex;
+    align-items: flex-start;
+    gap: 25px;
+    text-align: left;
+    transition: transform 0.3s ease;
+}
+.content-card:hover { transform: translateY(-3px); }
+
+.card-number {
+    font-size: 36px;
+    color: #d15170;
+    margin: 0;
+    line-height: 1;
+    font-weight: bold;
+}
+
+.card-text { flex: 1; }
+
+.card-text .card-lead {
+    font-size: 20px;
+    font-weight: bold;
+    color: #4a3b32;
+    margin-top: 0;
+    margin-bottom: 12px;
+    line-height: 1.4;
+}
+
+.card-text p {
+    font-size: 16px !important;
+    color: #6b5649;
+    line-height: 1.7;
+    margin: 8px 0 0 0 !important;
+}
+
+/* ==========================================
+   ②カップ観覧車
+   ========================================== */
+.card-text-with-cups {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    gap: 20px;
+}
+
+.cup-mikoshi-container {
+    position: relative;
+    width: 80px;
+    height: 80px;
+    min-width: 80px;
+    margin-left: 10px;
+    animation: kanransha-rotate 12s linear infinite;
+}
+
+.cup-position-wrapper {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+}
+
+.cup-pos-1 { transform: translate(-50%,-50%) translateY(-30px); }
+.cup-pos-2 { transform: translate(-50%,-50%) translate(26px,15px); }
+.cup-pos-3 { transform: translate(-50%,-50%) translate(-26px,15px); }
+
+.mikoshi-cup {
+    width: 44px;
+    height: auto;
+    display: block;
+    animation: cup-reverse-rotate 12s linear infinite;
+}
+
+/* ==========================================
+   ③お花回転
+   ========================================== */
+.card-text-with-flower {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    gap: 20px;
+}
+
+.flower-animation-container {
+    position: relative;
+    width: 80px;
+    height: 80px;
+    min-width: 80px;
+    margin-left: 10px;
+}
+
+.center-cup {
+    width: 80px;
+    height: auto;
+    position: absolute;
+    top: 50%;
+    left: 40%;
+    transform: translate(-50%,-50%);
+    z-index: 1;
+}
+
+.orbit-flower-wrapper {
+    position: absolute;
+    width: 28px;
+    height: 28px;
+    top: 48%;
+    left: 42px;
+    z-index: 2;
+    animation: hanafuda-rotate 6s linear infinite;
+}
+
+.orbit-flower {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* ==========================================
+   3つの円エリア
+   ========================================== */
+.circle-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    margin: 60px 0;
+    padding: 0 10px;
+}
+
+.circle-item {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+}
+
+.circle-image img {
+    width: 100%;
+    max-width: 230px;
+    height: auto;
+}
+
+.circle-text {
+    position: relative;
+    margin-top: -150px;
+    background-color: transparent;
+    padding: 10px 0;
+    box-shadow: none;
+    width: 70%;
+    z-index: 10;
+}
+
+.circle-text h3 {
+    margin: 0 0 8px 0;
+    font-size: 18px;
+    color: #d15170;
+}
+
+.circle-text p {
+    margin: 0;
+    font-size: 15px !important;
+    line-height: 1.5;
+}
+
+/* ==========================================
+   ツインブロック
+   ========================================== */
+.twin-block-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 30px;
+    margin: 80px auto;
+    max-width: 750px;
+    padding: 0 10px;
+}
+
+.twin-block-item { flex: 1; position: relative; }
+
+.twin-block-inner {
+    background-color: #ffffff;
+    border-radius: 20px;
+    padding: 25px 20px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 10px 30px rgba(224,164,178,0.12);
+    border: 2px solid #fbc9d8;
+    box-sizing: border-box;
+    transition: transform 0.3s ease;
+}
+.twin-block-inner:hover { transform: translateY(-4px); }
+
+.twin-block-inner h3 {
+    font-size: 16px;
+    color: #4a3b32;
+    line-height: 1.6;
+    margin: 0;
+    font-weight: bold;
+    text-align: center;
+}
+
+/* ==========================================
+   2つ目のタイピングボックス（PCベース）
+   ========================================== */
+.typing-box-2 {
+    margin: 120px auto 80px;
+    max-width: 900px;
+    text-align: center;
+    display: block;
+}
+
+.typing-main-container {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
+}
+
+.candle-side {
+    width: 100px;
+    height: auto;
+    display: block;
+}
+
+.typing-main-row-2 {
+    display: inline-block;
+    text-align: center;
+    vertical-align: middle;
+}
+
+#typing-text-2 {
+    font-size: 24px;
+    font-weight: bold;
+    line-height: 1.8;
+    color: #4a3b32;
+    margin: 0;
+    display: inline-block;
+    text-align: center;
+    white-space: pre-line;
+}
+
+/* ==========================================
+   ツインサークル（PCデフォルト）
+   ========================================== */
+.twin-circle-container {
+    display: flex;
+    justify-content: center;
+    gap: 60px;
+    margin: 80px auto;
+    max-width: 750px;
+    padding: 0 10px;
+}
+
+.twin-circle-item {
+    flex: 1;
+    max-width: 260px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+}
+
+.twin-circle-image img {
+    width: 100%;
+    height: auto;
+}
+
+.twin-circle-text {
+    position: relative;
+    margin-top: -145px;
+    background-color: transparent;
+    padding: 10px 0;
+    width: 90%;
+    z-index: 10;
+}
+
+.twin-circle-text h3 {
+    margin: 0;
+    font-size: 15px;
+    color: #4a3b32;
+    line-height: 1.6;
+    font-weight: bold;
+    text-align: center;
+}
+
+/* ==========================================
+   締めくくりメッセージ（PCデフォルト：白い四角枠）
+   ========================================== */
+
+    
+.closing-message-zone {
+    background-color: #ffffff;
+    border: 1px solid #fbc9d8;
+    border-radius: 16px;
+    padding: 50px 30px;
+    margin: 140px auto 40px;
+    max-width: 800px;
+    text-align: center;
+    box-shadow: 0 8px 24px rgba(224,164,178,0.1);
+}
+
+.closing-message-zone h2 {
+    font-size: 22px;
+    color: #4a3b32;
+    line-height: 1.8;
+    margin: 0;
+    font-weight: bold;
+}
+
+
+/* ==========================================
+   申し込みボタンエリア
+   ========================================== */
+.action-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 40px;
+    margin-bottom: 80px;
+}
+
+.main-button img {
+    max-width: 280px;
+    height: auto;
+    transition: transform 0.3s;
+}
+.main-button img:hover { transform: scale(1.05); }
+
+/* ==========================================
+   スクロール妖精
+   ========================================== */
+#scrolling-fairy {
+    position: fixed;
+    bottom: 35%;
+    right: 5%;
+    width: 120px;
+    z-index: 1000;
+    cursor: pointer;
+    text-decoration: none;
+    animation: fuwafuwa 3s ease-in-out infinite;
+}
+#scrolling-fairy img { width: 100%; height: auto; }
+
+/* ==========================================
+   背景お花ステージ
+   ========================================== */
+.flower-background-stage {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 1;
+    pointer-events: none;
+    overflow: hidden;
+    display: block !important;
+}
+
+.bg-flower-step1,
+.bg-flower-step2,
+.bg-flower-step3 {
+    position: absolute;
+    width: 32px !important;
+    height: auto !important;
+    display: block !important;
+    opacity: 0.8;
+}
+
+.bg-flower-step1 { top: 20%; left: -50px; animation: flow-left-to-right 12s ease-in-out infinite; }
+.bg-flower-step2 { left: -50px; top: 10%; animation: flow-diagonal 14s ease-in-out infinite; }
+.bg-flower-step3 { right: 150px; top: -50px; animation: flow-snowball 10s linear infinite; }
+
+/* ==========================================
+   アニメーション Keyframes
+   ========================================== */
+@keyframes fuwafuwa {
+    0%,100% { transform: translateY(0); }
+    50%      { transform: translateY(-15px); }
+}
+
+@keyframes flow-left-to-right {
+    0%   { left: -50px; transform: translateY(0) rotate(0deg); }
+    30%  { transform: translateY(-30px) rotate(120deg); }
+    70%  { transform: translateY(30px) rotate(240deg); }
+    100% { left: calc(100% + 50px); transform: translateY(0) rotate(360deg); }
+}
+
+@keyframes flow-diagonal {
+    0%   { left: -50px; top: 10%; transform: rotate(0deg); }
+    100% { left: calc(100% + 50px); top: 80%; transform: rotate(360deg); }
+}
+
+@keyframes flow-snowball {
+    0%   { top: -50px; transform: rotate(0deg); }
+    30%  { top: 30%; transform: rotate(90deg); }
+    40%  { top: 40%; transform: rotate(450deg); }
+    50%  { top: 50%; transform: rotate(810deg); }
+    100% { top: calc(100vh + 50px); transform: rotate(990deg); }
+}
+
+@keyframes kanransha-rotate {
+    0%   { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+@keyframes cup-reverse-rotate {
+    0%   { transform: rotate(0deg); }
+    100% { transform: rotate(-360deg); }
+}
+
+@keyframes hanafuda-rotate {
+    0%   { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* ==========================================
+   エフェクトステージ
+   ========================================== */
+#butterfly-stage,
+#sparkle-firework-stage {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100vw;
+    height: 100vh;
+    pointer-events: none;
+    z-index: 9999;
+    overflow: hidden;
+    display: block !important;
+}
+
+.flying-flower-particle {
+    position: absolute;
+    transform-origin: center center;
+    width: 50px;
+    height: auto;
+    opacity: 0;
+    z-index: 10000 !important;
+}
+
+/* ==========================================
+   ✅ バラ園レイアウト
+   ========================================== */
+.rose-garden-container {
+    position: relative;
+    max-width: 500px;
+    margin: 60px auto;
+    padding: 60px 40px;  /* パディングを増やして花束がはみ出ないように */
+}
+
+/* ✅ 左斜め上の花束（PC：大きめ） */
+.rose-bouquet-top-left {
+    position: absolute;
+    top: 0px;
+    left: -60px;
+    width: 200px;   /* PC：大きく */
+    height: auto;
+    z-index: 2;
+}
+
+/* ✅ 右斜め下の花束（180度反転） */
+.rose-bouquet-bottom-right {
+    position: absolute;
+    bottom: 60px;
+    right: -30px;
+    width: 130px;
+    height: auto;
+    transform: rotate(240deg);
+    z-index: 2;
+}
+
+/* ✅ バラの塊2つ */
+.rose-cluster {
+    position: absolute;
+    width: 55px;
+    height: auto;
+    z-index: 1;
+}
+.cluster-1 { top: -10px; right: 20px; }
+.cluster-2 { bottom: 0px; left: 10px; }
+
+/* ✅ 回転バラのベース */
+.rotating-rose {
+    position: absolute;
+    z-index: 1;
+    transform: rotate(20deg);
+}
+
+.start-slow-rotation {
+    animation: slowSpinAround 3s ease-in-out infinite;
+}
+
+@keyframes slowSpinAround {
+    0%   { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* ✅ ホワイトローズ */
+.white-rose-1 { top: 20px;   left: -50px;  width: 70px; }
+.white-rose-2 { bottom: 40px; right: -70px; width: 45px; }
+.white-rose-3 { top: -35px;  left: 40px;   width: 25px; }
+
+/* ✅ ピンクローズ */
+.pink-rose-1 { bottom: -30px; left: 110px;  width: 40px; }
+.pink-rose-2 { top: 100px;     right: -30px; width: 50px; }
+.pink-rose-3 { bottom: 100px;  left: -15px;  width: 60px; }
+
+
+/* ==========================================================================
+   📱 スマホ用（767px以下）
+   ========================================================================== */
+@media screen and (max-width: 767px) {
+
+    /* ✅ PC表示を消し、スマホ表示を出す */
+    .sp-only { display: inline !important; }
+    .pc-only { display: none !important; }
+
+    /* ✅ キャッチコピー：センター揃え・5行改行 */
+    .catch-copy {
+        text-align: center !important;
+        line-height: 1.8 !important;
+        font-size: 0.7rem !important;
+        margin: 0 auto 15px auto !important;
+        display: block !important;
+        width: 100% !important;
+    }
+
+    /* ✅ ツインサークル：縦並び */
+    .twin-circle-container {
+        flex-direction: column !important;
+        align-items: center !important;
+        gap: 30px !important;
+        margin: 40px auto !important;
+    }
+    .twin-circle-item {
+        width: 100% !important;
+        max-width: 240px !important;
+        margin: 0 auto !important;
+    }
+    .twin-circle-text {
+        position: absolute !important;
+        top: 50% !important;
+        left: 50% !important;
+        transform: translate(-50%, -50%) !important;
+        margin-top: 0 !important;
+        width: 85% !important;
+        z-index: 10 !important;
+    }
+    .twin-circle-text h3 {
+        text-align: center !important;
+        line-height: 1.5 !important;
+        font-size: 15px !important;
+    }
+
+    /* ✅ 締めくくりメッセージ：角丸ひし形（スマホ専用） */
+    .closing-message-zone {
+        position: relative !important;
+        background: transparent !important;
+        border: none !important;
+        padding: 70px 25px !important;
+        margin: 60px auto !important;
+        max-width: 280px !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        box-shadow: none !important;
+    }
+
+    /* 枠だけ45度回転でひし形に */
+    .closing-message-zone::before {
+        content: "" !important;
+        position: absolute !important;
+        top: 0; left: 0; right: 0; bottom: 0;
+        background: #ffffff !important;
+        border: 2px solid #fbc9d8 !important;
+        border-radius: 24px !important;
+        transform: rotate(45deg) !important;
+        z-index: 1 !important;
+        box-shadow: 0 8px 24px rgba(224,164,178,0.15) !important;
+    }
+
+    /* 文字は前面・回転しない */
+    .closing-message-zone h2 {
+        position: relative !important;
+        z-index: 2 !important;
+        font-size: 1.0rem !important;
+        line-height: 1.8 !important;
+        text-align: center !important;
+        margin: 0 !important;
+        width: 100% !important;
+        font-weight: bold !important;
+    }
+
+    /* --- 他スマホ調整 --- */
+    .typing-box {
+        padding: 25px 20px;
+        margin: 40px 15px;
+    }
+    #typing-text {
+        font-size: 18px;
+        text-align: center;
+    }
+    .typing-sub-text {
+        font-size: 14px !important;
+        padding-top: 8px;
+        line-height: 1.3;
+        text-align: center;
+    }
+    .circle-container {
+        flex-direction: column;
+        gap: 30px;
+        margin: 40px 0;
+    }
+    .circle-item {
+        width: 100%;
+        max-width: 240px;
+        margin: 0 auto;
+    }
+    .circle-text {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+        margin-top: 0;
+        width: 85%;
+        text-align: center;
+    }
+    .content-card {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 15px;
+        padding: 30px 20px;
+    }
+    .card-number { font-size: 40px; }
+    .card-text .card-lead { font-size: 18px; }
+    .card-text p { font-size: 15px !important; }
+    .card-text-with-cups,
+    .card-text-with-flower {
+        flex-direction: column;
+        text-align: center;
+        justify-content: center;
+        gap: 20px;
+    }
+    .cup-mikoshi-container,
+    .flower-animation-container { margin: 10px auto 0; }
+    .mikoshi-cup { width: 30px; }
+    .twin-block-container {
+        flex-direction: column;
+        gap: 25px;
+        margin: 50px 15px;
+    }
+    .twin-block-inner { padding: 35px 25px; }
+    .typing-box-2 {
+        padding: 30px 15px;
+        width: 100%;
+        box-sizing: border-box;
+    }
+    .typing-main-container {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        gap: 20px !important;
+    }
+    .candle-side {
+        width: 45px !important;
+        position: static !important;
+        display: inline-block !important;
+        margin: 0 10px !important;
+    }
+    .typing-main-row-2 {
+        width: 100%;
+        text-align: center;
+        font-size: 1rem;
+        line-height: 1.7;
+        word-break: break-all;
+        padding: 0 10px;
+    }
+    .action-section {
+        margin-top: 30px;
+        margin-bottom: 50px;
+    }
+
+    /* ✅ スマホでの花束サイズ */
+    .rose-bouquet-top-left {
+        width: 200px !important;
+        top: 30px !important;
+        left: -10px !important;
+    }
+    .rose-bouquet-bottom-right {
+        width: 150px !important;
+        bottom: 050px !important;
+        right: -1px !important;
+    }
+
+} /* スマホ用 閉じ */
+
+
+/* ==========================================
+   💻 PC専用（768px以上）
+   ========================================== */
+@media screen and (min-width: 768px) {
+    .typing-main-row-2 {
+        max-width: 580px !important;
+        width: 100% !important;
+        display: inline-block !important;
+        white-space: normal !important;
+        word-break: keep-all !important;
+    }
+    .flying-flower-particle {
+        width: 75px !important;
+        height: auto !important;
+    }
+}
